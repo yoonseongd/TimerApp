@@ -6,8 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-
-import { colors } from "../theme";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default class Setting extends Component {
   state = {
@@ -21,41 +20,47 @@ export default class Setting extends Component {
 
   submit = () => {
     if (this.state.feel_time === "" || this.state.exam_time === "")
-      alert("체감 하고싶은 시간과 원래 시험 시간을 입력해주세요.");
+      alert(
+        "체감 하고싶은 시간(단위 :분)과 원래 시험 시간(단위 :분)을 입력해주세요."
+      );
     else {
       const feel_time = this.state.feel_time;
       const exam_time = this.state.exam_time;
 
       const time_fact = Number(exam_time) / Number(feel_time);
-      this.props.screenProps.setting_time_fact(time_fact, Number(exam_time));
-      this.setState(() => {
-        this.props.navigation.navigate("Timer");
-      });
+      this.props.screenProps.setting_time_fact(
+        time_fact,
+        Number(exam_time) * 60
+      );
+
+      this.props.navigation.navigate("Timer");
     }
   };
 
   render() {
     return (
-      <View style={styles.container}>
+      <LinearGradient colors={["#00B7FF", "#FFFFC7"]} style={styles.container}>
         <Text style={styles.heading}>Setting</Text>
         <TextInput
-          placeholder="체감 시험 시간"
+          placeholder="체감 시험 시간 (단위: 분)"
           onChangeText={(val) => this.onChangeText("feel_time", val)}
           style={styles.input}
           value={this.state.feel_time}
+          keyboardType="numeric"
         />
         <TextInput
-          placeholder="원래 시험 시간"
+          placeholder="원래 시험 시간 (단위: 분)"
           onChangeText={(val) => this.onChangeText("exam_time", val)}
           style={styles.input}
           value={this.state.exam_time}
+          keyboardType="numeric"
         />
         <TouchableOpacity onPress={this.submit}>
           <View style={styles.button}>
             <Text style={styles.buttonText}>설정 완료</Text>
           </View>
         </TouchableOpacity>
-      </View>
+      </LinearGradient>
     );
   }
 }
@@ -79,7 +84,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   container: {
-    backgroundColor: colors.primary,
     flex: 1,
     justifyContent: "center",
   },
