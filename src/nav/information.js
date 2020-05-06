@@ -10,19 +10,21 @@ export default class Information extends Component {
           <View style={styles.header}>
             <Text style={styles.headerText}>Instruction</Text>
             <Text style={styles.heading}>
-              이 타이머 앱은 다른 경쟁자보다 더 빠르게 더 정확하게 문제를
-              맞추기위한 훈련을 해줘요!!!!
+              이 타이머앱은 다른 경쟁자보다 더 빠르고 정확하게 문제를 맞출 수
+              있도록 하는 훈련을 도와줘요! 
             </Text>
             <Text style={styles.heading}>
-              혼자 모의 시험을 풀 때 점수는 잘 나오지만 막상 정해진 시험 시간에
-              문제를 풀면 다 못 풀죠? 오구오구ㅜㅜ
+              혼자 모의시험을 풀 때는 괜찮다가도 막상 시험을 칠 때는 정해진 시간
+              안에 맞춰 풀기가 어렵죠? 오구오구 ㅜㅜ
             </Text>
             <Text style={styles.heading}>
-              시험장에서는 정해진 시간에 고도의 집중과 긴장감을 갖고 문제를 풀어
-              넘길때 빠른 두뇌회전이 필요한데
+              시험장에서 고득점을 달성하기 위해서는 정해진 시간 안에 고도의
+              집중력과 긴장감을 갖고 문제를 풀 수 있어야 합니다. 시간 감각을
+              기르는 것은 필수예요!
             </Text>
             <Text style={styles.heading}>
-              제 시간에 다 맞추려면 그 시험적 감을 길러야해요!!!!
+              여러분은 이 타이머 앱으로 체감 시간을 마음대로 조정할 수
+              있습니다! 
             </Text>
           </View>
           <View style={styles.header}>
@@ -31,23 +33,19 @@ export default class Information extends Component {
               style={styles.image}
               source={require("../img/setting.png")}
             />
-            <Text style={styles.heading}>그래서 이 타이머 앱은</Text>
-            <Text style={styles.heading}>여러분의 실제 시험이 60분이고</Text>
+            <Text style={styles.heading}>
+              예를 들어, 제한 시간이 60분인 시험을 준비할 때
+            </Text>
             <Text style={styles.heading}>5분 더 빨리 풀기위해</Text>
-            <Text style={styles.heading}>체감 하고싶은 55분을 설정하면</Text>
+            <Text style={styles.heading}>체감 시간을 55분으로 설정하면</Text>
             <Text style={styles.heading}>1. 실제 시험 시간 예)60</Text>
             <Text style={styles.heading}>2. 체감 시험 시간 예)55</Text>
-            <Text style={styles.heading}>여러분이 설정한 배율만큼</Text>
             <Text style={styles.heading}>
-              ( 60/55 : 대략 1.09 배율) 1초가 1.09초 빠르게 타이머가 동작해서
+              여러분이 설정한 시간에 맞게 타이머의 동작 배율이 달라집니다.
             </Text>
             <Text style={styles.heading}>
-              수험생 여러분의 타이머는 60:00 에서 00:00 이 되지만 실제 시간은
-              55분이 지나기에
-            </Text>
-            <Text style={styles.heading}>
-              남들보다 더 긴장감있고, 높은 집중력으로 빨리 문제를 풀수
-              있어요!!!!
+              수험생 여러분의 타이머는 60:00 에서 00:00이 되지만 실제로는 55분이
+              지나기 때문에 더 긴장감 있는 연습이 가능해 집니다.
             </Text>
           </View>
           <View style={styles.header}>
