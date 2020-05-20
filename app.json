@@ -2,11 +2,7 @@
   "expo": {
     "name": "Timer App",
     "slug": "TimerApp",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/img/icon.png",
@@ -21,6 +17,9 @@
     "android": {
       "package": "co.kr.dys0707.dothome.TimerApp",
       "versionCode": 2,
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-7675990536241720~4054346495"
+      },
       "permissions": [
         "CAMERA",
         "RECORD_AUDIO",
@@ -28,9 +27,7 @@
         "READ_PHONE_STATE"
       ]
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "bundleIdentifier": "co.kr.dys0707.dothome.TimerApp",
       "buildNumber": "1.0.0"

@@ -7,12 +7,22 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { setTestDeviceIDAsync, AdMobInterstitial } from "expo-ads-admob";
 
 export default class Setting extends Component {
   state = {
     feel_time: "",
     exam_time: "",
   };
+
+  async componentDidMount() {
+    await setTestDeviceIDAsync("EMULATOR");
+    await AdMobInterstitial.setAdUnitID(
+      "ca-app-pub-7675990536241720/7583362112"
+    ); // Test ID, Replace with your-admob-unit-id
+    await AdMobInterstitial.requestAdAsync();
+    await AdMobInterstitial.showAdAsync();
+  }
 
   onChangeText = (key, value) => {
     this.setState({ [key]: value });

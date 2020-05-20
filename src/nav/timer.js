@@ -15,15 +15,15 @@ export default class Timer extends React.Component {
     isPlaying: false,
   };
   countPlus = () => {
-    console.log(
-      this.state.count,
-      this.props.screenProps.exam_time,
-      this.props.screenProps.time_fact
-    );
+    // console.log(
+    //   this.state.count,
+    //   this.props.screenProps.exam_time,
+    //   this.props.screenProps.time_fact
+    // );
     const { count } = this.state;
     if (count >= this.props.screenProps.exam_time) {
       this.stop();
-      console.log("time is done");
+      // console.log("time is done");
     } else {
       this.setState({ count: count + 1, isPlaying: true });
     }
@@ -34,7 +34,7 @@ export default class Timer extends React.Component {
       () => this.countPlus(),
       1000 / this.props.screenProps.time_fact
     );
-    console.log("counting");
+    // console.log("counting");
   };
 
   pause = () => {
@@ -42,7 +42,7 @@ export default class Timer extends React.Component {
 
     this.setState({ isPlaying: false });
 
-    console.log("pause");
+    // console.log("pause");
   };
 
   formatTime = (time) => {
@@ -57,7 +57,7 @@ export default class Timer extends React.Component {
 
     this.setState({ isPlaying: false });
     this.setState({ count: 0 });
-    console.log("stop");
+    // console.log("stop");
   };
   render() {
     const { exam_time } = this.props.screenProps;
