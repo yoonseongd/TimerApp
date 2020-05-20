@@ -18,7 +18,7 @@ export default class Setting extends Component {
   async componentDidMount() {
     await setTestDeviceIDAsync("EMULATOR");
     await AdMobInterstitial.setAdUnitID(
-      "ca-app-pub-7675990536241720/7583362112"
+      "ca-app-pub-3940256099942544/8691691433"
     ); // Test ID, Replace with your-admob-unit-id
     await AdMobInterstitial.requestAdAsync();
     await AdMobInterstitial.showAdAsync();

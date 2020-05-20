@@ -1,8 +1,18 @@
 import React, { Component } from "react";
 import { Text, View, Image, StyleSheet, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { setTestDeviceIDAsync, AdMobInterstitial } from "expo-ads-admob";
 
 export default class Information extends Component {
+  async componentDidMount() {
+    await setTestDeviceIDAsync("EMULATOR");
+    await AdMobInterstitial.setAdUnitID(
+      "ca-app-pub-3940256099942544/8691691433"
+    ); // Test ID, Replace with your-admob-unit-id
+    await AdMobInterstitial.requestAdAsync();
+    await AdMobInterstitial.showAdAsync();
+  }
+
   render() {
     return (
       <LinearGradient colors={["#4b79a1", "#283e51"]} style={styles.container}>
