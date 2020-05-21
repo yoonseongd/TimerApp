@@ -8,11 +8,17 @@ import {
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { Ionicons } from "@expo/vector-icons";
 
 export default class Timer extends React.Component {
   state = {
     count: 0,
     isPlaying: false,
+  };
+  static navigationOptions = {
+    tabBarIcon: () => {
+      return <Ionicons name="md-timer" size={32} color="darkturquoise" />;
+    },
   };
   countPlus = () => {
     // console.log(

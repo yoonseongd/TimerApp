@@ -16,7 +16,7 @@
     },
     "android": {
       "package": "co.kr.dys0707.dothome.TimerApp",
-      "versionCode": 2,
+      "versionCode": 3,
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-7675990536241720~4054346495"
       },

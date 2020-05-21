@@ -6,16 +6,28 @@ import {
   AdMobBanner,
   AdMobInterstitial,
 } from "expo-ads-admob";
+import { Ionicons } from "@expo/vector-icons";
 
 export default class Information extends Component {
   async componentDidMount() {
     await setTestDeviceIDAsync("EMULATOR");
     await AdMobInterstitial.setAdUnitID(
-      "ca-app-pub-3940256099942544/8691691433"
+      "ca-app-pub-7675990536241720/7583362112"
     ); // Test ID, Replace with your-admob-unit-id
     await AdMobInterstitial.requestAdAsync();
     await AdMobInterstitial.showAdAsync();
   }
+  static navigationOptions = {
+    tabBarIcon: () => {
+      return (
+        <Ionicons
+          name="md-information-circle-outline"
+          size={32}
+          color="darkturquoise"
+        />
+      );
+    },
+  };
   bannerError() {
     console.log("An error");
     return;
@@ -28,10 +40,10 @@ export default class Information extends Component {
           <AdMobBanner
             style={styles.bottomBanner}
             bannerSize="banner"
-            adUnitID="ca-app-pub-3940256099942544/6300978111
-            "
+            adUnitID="ca-app-pub-7675990536241720/9711418731"
+            // onAdViewDidReceiveAd={() => console.log("success")}
             // Test ID, Replace with your-admob-unit-id
-            // setTestDeviceID="EMULATOR"
+            setTestDeviceID="EMULATOR"
             didFailToReceiveAdWithError={this.bannerError}
           />
           <View style={styles.header}>
@@ -120,8 +132,9 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
   },
-  // bottomBanner: {
-  //   position: "absolute",
-  //   bottom: 100,
-  // },
+  bottomBanner: {
+    position: "absolute",
+    alignSelf: "center",
+    top: 600,
+  },
 });
