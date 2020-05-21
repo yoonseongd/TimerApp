@@ -10,7 +10,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 export default class Information extends Component {
   async componentDidMount() {
-    await setTestDeviceIDAsync("EMULATOR");
+    // await setTestDeviceIDAsync("EMULATOR");
     await AdMobInterstitial.setAdUnitID(
       "ca-app-pub-7675990536241720/7583362112"
     ); // Test ID, Replace with your-admob-unit-id
@@ -29,7 +29,7 @@ export default class Information extends Component {
     },
   };
   bannerError() {
-    console.log("An error");
+    // console.log("An error");
     return;
   }
   render() {

@@ -16,7 +16,7 @@
     },
     "android": {
       "package": "co.kr.dys0707.dothome.TimerApp",
-      "versionCode": 3,
+      "versionCode": 4,
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-7675990536241720~4054346495"
       },
@@ -24,7 +24,8 @@
         "CAMERA",
         "RECORD_AUDIO",
         "READ_CONTACTS",
-        "READ_PHONE_STATE"
+        "READ_PHONE_STATE",
+        "VIBRATE"
       ]
     },
     "assetBundlePatterns": ["**/*"],

@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Text,
+  Vibration,
   View,
   StyleSheet,
   TouchableOpacity,
@@ -28,6 +29,7 @@ export default class Timer extends React.Component {
     // );
     const { count } = this.state;
     if (count >= this.props.screenProps.exam_time) {
+      Vibration.vibrate(1000);
       this.stop();
       // console.log("time is done");
     } else {
@@ -40,6 +42,7 @@ export default class Timer extends React.Component {
       () => this.countPlus(),
       1000 / this.props.screenProps.time_fact
     );
+
     // console.log("counting");
   };
 
