@@ -7,14 +7,21 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { setTestDeviceIDAsync, AdMobInterstitial } from "expo-ads-admob";
+import {
+  setTestDeviceIDAsync,
+  AdMobBanner,
+  AdMobInterstitial,
+} from "expo-ads-admob";
 
 export default class Setting extends Component {
   state = {
     feel_time: "",
     exam_time: "",
   };
-
+  bannerError() {
+    console.log("An error");
+    return;
+  }
   async componentDidMount() {
     await setTestDeviceIDAsync("EMULATOR");
     await AdMobInterstitial.setAdUnitID(
@@ -70,6 +77,16 @@ export default class Setting extends Component {
             <Text style={styles.buttonText}>설정 완료</Text>
           </View>
         </TouchableOpacity>
+        {/* Display a banner */}
+        <AdMobBanner
+          style={styles.bottomBanner}
+          bannerSize="banner"
+          adUnitID="ca-app-pub-3940256099942544/6300978111
+          "
+          // Test ID, Replace with your-admob-unit-id
+          // setTestDeviceID="EMULATOR"
+          didFailToReceiveAdWithError={this.bannerError}
+        />
       </LinearGradient>
     );
   }
@@ -83,6 +100,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     margin: 10,
   },
+  // bottomBanner: {
+  //   position: "absolute",
+  //   bottom: 100,
+  // },
   buttonText: {
     color: "white",
     fontSize: 18,

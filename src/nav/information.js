@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { Text, View, Image, StyleSheet, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import { setTestDeviceIDAsync, AdMobInterstitial } from "expo-ads-admob";
+import {
+  setTestDeviceIDAsync,
+  AdMobBanner,
+  AdMobInterstitial,
+} from "expo-ads-admob";
 
 export default class Information extends Component {
   async componentDidMount() {
@@ -12,11 +16,24 @@ export default class Information extends Component {
     await AdMobInterstitial.requestAdAsync();
     await AdMobInterstitial.showAdAsync();
   }
-
+  bannerError() {
+    console.log("An error");
+    return;
+  }
   render() {
     return (
       <LinearGradient colors={["#4b79a1", "#283e51"]} style={styles.container}>
         <ScrollView>
+          {/* Display a banner */}
+          <AdMobBanner
+            style={styles.bottomBanner}
+            bannerSize="banner"
+            adUnitID="ca-app-pub-3940256099942544/6300978111
+            "
+            // Test ID, Replace with your-admob-unit-id
+            // setTestDeviceID="EMULATOR"
+            didFailToReceiveAdWithError={this.bannerError}
+          />
           <View style={styles.header}>
             <Text style={styles.headerText}>Instruction</Text>
             <Text style={styles.heading}>
@@ -103,4 +120,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
   },
+  // bottomBanner: {
+  //   position: "absolute",
+  //   bottom: 100,
+  // },
 });
