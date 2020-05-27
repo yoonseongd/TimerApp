@@ -1,29 +1,50 @@
-import React, { Component } from "react";
-import { Platform, StyleSheet, View, Text } from "react-native";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
-import Tabs from "./src";
+import { Asset } from "expo-asset";
+import { AppLoading } from "expo";
+import Loading from "./src/appLoading";
+function cacheImages(images) {
+  return images.map((image) => {
+    if (typeof image === "string") {
+      return Image.prefetch(image);
+    } else {
+      return Asset.fromModule(image).downloadAsync();
+    }
+  });
+}
+export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isReady: false,
+    };
+  }
 
-export default class App extends Component {
-  state = {
-    time_fact: 1,
-    exam_time: 90,
-  };
+  async _loadAssetsAsync() {
+    const imageAssets = cacheImages([require("./assets/splash.png")]);
 
-  setting_time_fact = (time_fact, exam_time) => {
-    this.setState({ time_fact, exam_time });
-  };
-
-  //유상코드
+    await Promise.all([...imageAssets]);
+  }
 
   render() {
-    return (
-      <Tabs
-        screenProps={{
-          time_fact: this.state.time_fact,
-          exam_time: this.state.exam_time,
-          setting_time_fact: this.setting_time_fact,
-        }}
-      />
-    );
+    if (!this.state.isReady) {
+      return (
+        <AppLoading
+          startAsync={this._loadAssetsAsync}
+          onFinish={() => this.setState({ isReady: true })}
+          onError={console.warn}
+        />
+      );
+    }
+    return <Loading />;
   }
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});

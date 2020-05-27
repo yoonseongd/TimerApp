@@ -1,28 +1,40 @@
 {
   "expo": {
-    "name": "timer-for-student",
-    "slug": "timer-for-student",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "name": "Timer App",
+    "slug": "TimerApp",
+    "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./src/img/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#84B5B3"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "android": {
+      "package": "co.kr.dys0707.dothome.TimerApp",
+      "versionCode": 7,
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-7675990536241720~4054346495"
+      },
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO",
+        "READ_CONTACTS",
+        "READ_PHONE_STATE",
+        "VIBRATE"
+
+      ]
+    },
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
-    }
+      "bundleIdentifier": "co.kr.dys0707.dothome.TimerApp",
+      "buildNumber": "1.0.0"
+    },
+    "description": "This timer-app is for students to prepare exam. This timer-app help students solve problem more fast than others. Because this time of timer flow more fast than real time. It makes students`s tension, ability to solve problem higher than normal timer and it train students feel real exam whenever they have mock exam by using this timer-app",
+    "githubUrl": "https://github.com/yoonseongd/TimerApp"
   }
 }
