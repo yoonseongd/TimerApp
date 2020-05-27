@@ -112,7 +112,7 @@ class Loading extends Component {
               resizeMode: "cover",
               justifyContent: "center",
             }}
-            source={require("../assets/하단.png")}
+            source={require("./img/하단.png")}
           >
             <Animated.View
               style={{
@@ -121,7 +121,7 @@ class Loading extends Component {
               }}
             >
               <Image
-                source={require("../assets/상단4.png")}
+                source={require("./img/상단4.png")}
                 style={{ flex: 1, height: null, width: null }}
               />
             </Animated.View>

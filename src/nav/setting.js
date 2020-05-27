@@ -5,22 +5,40 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  // Platform
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-// import { setTestDeviceIDAsync, AdMobInterstitial } from "expo-ads-admob";
+// import {
+//   // setTestDeviceIDAsync,
+//   AdMobBanner,
+//   AdMobInterstitial,
+// } from "expo-ads-admob";
+import { Ionicons } from "@expo/vector-icons";
 
 export default class Setting extends Component {
-  state = {
+  constructor(props){
+    super(props);
+    // this.bannerAdId=Platform.OS==='ios' ? "ca-app-pub-7675990536241720/2508991223" : "ca-app-pub-7675990536241720/1467372291";
+    // this.interstitialAdId=Platform.OS==='ios' ? "ca-app-pub-7675990536241720/8882827882" : "ca-app-pub-7675990536241720/7583362112"
+      this.state = {
     feel_time: "",
     exam_time: "",
   };
+  }
 
+  static navigationOptions = {
+    tabBarIcon: () => {
+      return <Ionicons name="md-settings" size={32} color="darkturquoise" />;
+    },
+  };
+  // bannerError() {
+  //   // console.log("An error");
+  //   return;
+  // }
   // async componentDidMount() {
-  //   await setTestDeviceIDAsync("EMULATOR");
-  //   await AdMobInterstitial.setAdUnitID(
-  //     "ca-app-pub-3940256099942544/8691691433"
-  //   ); // Test ID, Replace with your-admob-unit-id
-  //   await AdMobInterstitial.requestAdAsync();
+  //   // await setTestDeviceIDAsync("EMULATOR");
+  //   await AdMobInterstitial.setAdUnitID(this.interstitialAdId);
+  //   await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: true});
   //   await AdMobInterstitial.showAdAsync();
   // }
 
@@ -70,6 +88,17 @@ export default class Setting extends Component {
             <Text style={styles.buttonText}>설정 완료</Text>
           </View>
         </TouchableOpacity>
+        {/* Display a banner */}
+        {/* <AdMobBanner
+          style={styles.bottomBanner}
+          bannerSize="banner"
+          adUnitID={this.bannerAdId}
+          servePersonalizedAds="true"
+          // onAdViewDidReceiveAd={() => console.log("success")}
+          // Test ID, Replace with your-admob-unit-id
+          // setTestDeviceID="EMULATOR"
+          didFailToReceiveAdWithError={this.bannerError}
+        /> */}
       </LinearGradient>
     );
   }
@@ -83,6 +112,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     margin: 10,
   },
+  // bottomBanner: {
+  //   alignSelf: "center",
+  //   position: "absolute",
+  //   bottom: 0,
+  // },
   buttonText: {
     color: "white",
     fontSize: 18,
