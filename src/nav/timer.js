@@ -29,19 +29,21 @@ export default class Timer extends React.Component {
     // );
     const { count } = this.state;
     if (count >= this.props.screenProps.exam_time) {
-      Vibration.vibrate(1000);
+      Vibration.vibrate([1000, 2000, 3000]);
       this.stop();
       // console.log("time is done");
     } else {
-      this.setState({ count: count + 1, isPlaying: true });
+      this.setState({ count: count + 1 });
     }
   };
+
 
   startClock = () => {
     this.timerId = setInterval(
       () => this.countPlus(),
       1000 / this.props.screenProps.time_fact
     );
+    this.setState({  isPlaying: true });
 
     // console.log("counting");
   };
