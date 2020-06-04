@@ -8,10 +8,10 @@ import {
   Platform
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import {
-  AdMobBanner,
-  AdMobInterstitial,
-} from "expo-ads-admob";
+// import {
+//   AdMobBanner,
+//   AdMobInterstitial,
+// } from "expo-ads-admob";
 import { Ionicons } from "@expo/vector-icons";
 
 export default class Setting extends Component {
@@ -34,12 +34,12 @@ export default class Setting extends Component {
   //   // console.log("An error");
   //   return;
   // }
-  async componentDidMount() {
-    // await setTestDeviceIDAsync("EMULATOR");
-    await AdMobInterstitial.setAdUnitID(Platform.OS==='ios' ? "ca-app-pub-7675990536241720/8882827882" : "ca-app-pub-7675990536241720/7583362112");
-    await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: true});
-    await AdMobInterstitial.showAdAsync();
-  }
+  // async componentDidMount() {
+  //   // await setTestDeviceIDAsync("EMULATOR");
+  //   await AdMobInterstitial.setAdUnitID(Platform.OS==='ios' ? "ca-app-pub-7675990536241720/8882827882" : "ca-app-pub-7675990536241720/7583362112");
+  //   await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: true});
+  //   await AdMobInterstitial.showAdAsync();
+  // }
 
   onChangeText = (key, value) => {
     this.setState({ [key]: value });
@@ -87,14 +87,12 @@ export default class Setting extends Component {
             <Text style={styles.buttonText}>설정 완료</Text>
           </View>
         </TouchableOpacity>
-        Display a banner */}
-        <AdMobBanner
+        {/* <AdMobBanner
           style={styles.bottomBanner}
           bannerSize="banner"
           adUnitID={Platform.OS==='ios' ? "ca-app-pub-7675990536241720/2508991223" : "ca-app-pub-7675990536241720/1467372291"}
           servePersonalizedAds="true"
-          // setTestDeviceID="EMULATOR"
-        />
+        /> */}
       </LinearGradient>
     );
   }
@@ -108,11 +106,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     margin: 10,
   },
-  bottomBanner: {
-    alignSelf: "center",
-    position: "absolute",
-    bottom: 0,
-  },
+  // bottomBanner: {
+  //   alignSelf: "center",
+  //   position: "absolute",
+  //   bottom: 0,
+  // },
   buttonText: {
     color: "white",
     fontSize: 18,

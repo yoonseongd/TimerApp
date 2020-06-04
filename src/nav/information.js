@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Text, View, Image, StyleSheet, ScrollView } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import {
-  // setTestDeviceIDAsync,
-  AdMobBanner,
-  AdMobInterstitial,
-} from "expo-ads-admob";
+// import {
+//   // setTestDeviceIDAsync,
+//   AdMobBanner,
+//   AdMobInterstitial,
+// } from "expo-ads-admob";
 import { Ionicons } from "@expo/vector-icons";
 
 export default class Information extends Component {
@@ -24,12 +24,12 @@ export default class Information extends Component {
   //ios banner : ca-app-pub-7675990536241720/2508991223
   //ios Interstitial : ca-app-pub-7675990536241720/8882827882
 
-  async componentDidMount() {
-    // await setTestDeviceIDAsync("EMULATOR");
-    await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: true});
-    await AdMobInterstitial.setAdUnitID(Platform.OS==='ios' ? "ca-app-pub-7675990536241720/8882827882" : "ca-app-pub-7675990536241720/7583362112");
-    await AdMobInterstitial.showAdAsync();
-  }
+  // async componentDidMount() {
+  //   // await setTestDeviceIDAsync("EMULATOR");
+  //   await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: true});
+  //   await AdMobInterstitial.setAdUnitID(Platform.OS==='ios' ? "ca-app-pub-7675990536241720/8882827882" : "ca-app-pub-7675990536241720/7583362112");
+  //   await AdMobInterstitial.showAdAsync();
+  // }
   static navigationOptions = {
     tabBarIcon: () => {
       return (
@@ -49,14 +49,12 @@ export default class Information extends Component {
     return (
       <LinearGradient colors={["#4b79a1", "#283e51"]} style={styles.container}>
         <ScrollView>
-          <AdMobBanner
+          {/* <AdMobBanner
             style={styles.bottomBanner}
             bannerSize="banner"
             servePersonalizedAds="true"
             adUnitID={Platform.OS==='ios' ? "ca-app-pub-7675990536241720/2508991223" : "ca-app-pub-7675990536241720/1467372291"}
-
-            // setTestDeviceID="EMULATOR"
-          />
+          /> */}
           <View style={styles.header}>
             <Text style={styles.headerText}>Instruction</Text>
             <Text style={styles.heading}>
