@@ -10,6 +10,7 @@ import {
 import { FontAwesome } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
+import { activateKeepAwake, deactivateKeepAwake } from "expo-keep-awake";
 
 export default class Timer extends React.Component {
   state = {
@@ -37,14 +38,13 @@ export default class Timer extends React.Component {
     }
   };
 
-
   startClock = () => {
     this.timerId = setInterval(
       () => this.countPlus(),
       1000 / this.props.screenProps.time_fact
     );
-    this.setState({  isPlaying: true });
-
+    this.setState({ isPlaying: true });
+    activateKeepAwake();
     // console.log("counting");
   };
 
@@ -69,6 +69,7 @@ export default class Timer extends React.Component {
     this.setState({ isPlaying: false });
     this.setState({ count: 0 });
     // console.log("stop");
+    deactivateKeepAwake();
   };
   render() {
     const { exam_time } = this.props.screenProps;

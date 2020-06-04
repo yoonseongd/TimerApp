@@ -80,7 +80,7 @@ class Loading extends Component {
         function () {
           this.setState({ startClick: true });
         }.bind(this),
-        4000
+        3500
       ),
     ]);
 

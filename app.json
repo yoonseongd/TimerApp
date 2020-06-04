@@ -20,7 +20,7 @@
     },
     "android": {
       "package": "co.kr.dys0707.dothome.TimerApp",
-      "versionCode": 8,
+      "versionCode": 10,
       "config": {
         "googleMobileAdsAppId": "ca-app-pub-7675990536241720~4054346495"
       },
@@ -37,7 +37,10 @@
     ],
     "ios": {
       "bundleIdentifier": "co.kr.dys0707.dothome.TimerApp",
-      "buildNumber": "1.0.1"
+      "buildNumber": "1.0.2",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-7675990536241720~9074399570"
+      }
     },
     "description": "This timer-app is for students to prepare exam. This timer-app help students solve problem more fast than others. Because this time of timer flow more fast than real time. It makes students`s tension, ability to solve problem higher than normal timer and it train students feel real exam whenever they have mock exam by using this timer-app",
     "githubUrl": "https://github.com/yoonseongd/TimerApp"
